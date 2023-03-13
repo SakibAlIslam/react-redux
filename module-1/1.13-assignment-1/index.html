@@ -7,6 +7,7 @@
         <title>LWS Assignment 1 - Scoreboard</title>
         <link rel="icon" type="image/x-icon" href="./image/favicon.png" />
         <link rel="stylesheet" href="./style.css" />
+        <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
     </head>
 
     <body>
@@ -30,7 +31,7 @@
                 <!-- Each form tag is Each row, This will render multiple times on Clicking 'Add Another Match' -->
                 <div class="match">
                     <div class="wrapper">
-                        <button class="lws-delete">
+                        <button class="lws-delete" type="button">
                             <img src="./image/delete.svg" alt="" />
                         </button>
                         <h3 class="lws-matchName">Match 1</h3>
@@ -84,5 +85,6 @@
         </section>
 
         <section class="mask"></section>
+        <script src="./script.js"></script>
     </body>
 </html>
