@@ -28,6 +28,22 @@ const matchesReducer = (state = initialState, action) => {
         resultValue: 0,
       },
     ];
+  } else if (action.type === UPDATE_MATCH) {
+    return state.map((match) => {
+      if (match.id === action.payload.id) {
+        const increment = parseInt(action.payload.increment);
+        const decrement = parseInt(action.payload.decrement);
+        const resultValue = match.resultValue + increment - decrement;
+        return {
+          ...match,
+          increment,
+          decrement,
+          resultValue,
+        };
+      } else {
+        return match;
+      }
+    });
   } else if (action.type === DELETE_MATCH) {
     return state.filter((match) => match.id !== action.payload);
   } else {
@@ -69,6 +85,24 @@ const render = () => {
       store.dispatch({
         type: DELETE_MATCH,
         payload: match?.id,
+      });
+    });
+    matchElement.querySelectorAll("input").forEach((input) => {
+      input.addEventListener("input", () => {
+        const increment = parseInt(
+          matchElement.querySelector(".lws-increment").value
+        );
+        const decrement = parseInt(
+          matchElement.querySelector(".lws-decrement").value
+        );
+        store.dispatch({
+          type: UPDATE_MATCH,
+          payload: {
+            id: match.id,
+            increment,
+            decrement,
+          },
+        });
       });
     });
     matchesContainer.appendChild(matchElement);
