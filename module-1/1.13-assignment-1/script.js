@@ -45,6 +45,7 @@ const matchesReducer = (state = initialState, action) => {
       }
     });
   } else if (action.type === DELETE_MATCH) {
+    console.log('action.payload: ', action.payload);
     return state.filter((match) => match.id !== action.payload);
   } else {
     return state;
@@ -82,6 +83,7 @@ const render = () => {
         </div>
       `;
     matchElement.querySelector(".lws-delete").addEventListener("click", () => {
+      console.log('match?.id: ', match?.id);
       store.dispatch({
         type: DELETE_MATCH,
         payload: match?.id,
