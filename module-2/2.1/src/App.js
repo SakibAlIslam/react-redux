@@ -10,6 +10,8 @@ function App() {
 
             <div class="max-w-md mx-auto mt-10 space-y-5">
                 <Counter />
+                <Counter />
+                <Counter />
             </div>
         </div>
   );
