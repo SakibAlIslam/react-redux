@@ -1,3 +1,5 @@
+import {INCREMENT, DECREMENT} from "./actionTypes"
+
 const initialState = {
     value: 0
 }
